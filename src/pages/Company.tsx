@@ -5,7 +5,7 @@ import { CONTACT_EMAIL, OPERATOR, TIMEREX_URL, isBookingConfigured } from '../co
 export function Company() {
   const rows = [
     { k: 'サービス名', v: 'His Recoveries' },
-    { k: '運営', v: `${OPERATOR.companyName}（${OPERATOR.companyNameEn}）` },
+    { k: '運営事業者', v: `${OPERATOR.companyName}（${OPERATOR.companyNameEn}）` },
     { k: '代表者', v: OPERATOR.representative || <Placeholder label="代表者氏名" /> },
     { k: '所在地', v: OPERATOR.address || <Placeholder label="所在地" /> },
     {
@@ -21,8 +21,8 @@ export function Company() {
   ]
 
   return (
-    <DocLayout title="運営者情報・お問い合わせ">
-      <DocSection title="運営者情報">
+    <DocLayout title="事業者情報・お問い合わせ">
+      <DocSection title="事業者情報">
         <dl className="divide-y divide-line rounded-xl border border-line bg-surface">
           {rows.map((r) => (
             <div key={r.k} className="grid gap-1 px-5 py-4 sm:grid-cols-[9rem_1fr] sm:gap-4">
@@ -31,6 +31,15 @@ export function Company() {
             </div>
           ))}
         </dl>
+      </DocSection>
+
+      <DocSection title="相談担当者の公開名について">
+        <p>
+          本サービスの相談担当者は、公開プロフィール上ではニックネーム（担当者名）で活動し、実名や勤務先は掲載していません。相談者と担当者双方のプライバシーを守るための運用です。
+        </p>
+        <p>
+          本サービスの提供主体は上記の運営事業者であり、相談の実施や個人情報の取り扱いについては運営事業者が責任を負います。お問い合わせやご請求は、下記の窓口で受け付けます。
+        </p>
       </DocSection>
 
       <section id="contact" className="scroll-mt-24">

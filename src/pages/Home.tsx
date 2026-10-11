@@ -5,6 +5,7 @@ import { Hero } from '../sections/Hero'
 import { Survey } from '../sections/Survey'
 import { Concerns } from '../sections/Concerns'
 import { Values } from '../sections/Values'
+import { Counselors } from '../sections/Counselors'
 import { Flow } from '../sections/Flow'
 import { Summary } from '../sections/Summary'
 import { Privacy } from '../sections/Privacy'
@@ -17,12 +18,13 @@ export function Home() {
       <Header />
       <main id="main">
         <Hero />
-        <Survey />
         <Concerns />
+        <Survey />
         <Values />
+        <Counselors />
+        <Privacy />
         <Flow />
         <Summary />
-        <Privacy />
         <Faq />
         <FinalCta />
       </main>

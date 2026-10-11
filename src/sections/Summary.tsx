@@ -1,11 +1,10 @@
 import { Section } from '../components/Section'
 
 const sample = [
-  { h: '今、困っていること', b: '人に話しにくい悩みがあり、どう向き合えばよいか分からない状態が続いている。' },
-  { h: 'これまで試したこと', b: 'インターネットで情報を調べた。いくつか試したが、自分に合っているか判断できなかった。' },
-  { h: '今回の対話で整理できたこと', b: '気になっている点を言葉にしたことで、優先して考えたいことが見えてきた。' },
-  { h: '次に考えられる選択肢', b: '生活の中で無理なく試せること／情報の見極め方／専門家に相談するかどうかの判断材料。' },
-  { h: '必要に応じて確認したいこと', b: '医療的な判断が必要かどうかは、医療機関で確認することを検討する。' },
+  { h: '今困っていること', b: '人に話しにくい悩みがあり、どう向き合えばよいか分からない状態が続いている。' },
+  { h: '対話で整理できたこと', b: 'これまで調べたこと・試したことと、まだ分からないことを分けて言葉にできた。' },
+  { h: '気づいたこと', b: '気になっている点の中で、優先して考えたいことが見えてきた。' },
+  { h: '次に考えられる選択肢', b: '無理なく試せること／情報の見極め方／医療機関などの専門家に相談するかどうかの判断材料。' },
 ]
 
 const terms = [
@@ -20,20 +19,20 @@ export function Summary() {
       id="summary"
       eyebrow="相談後のまとめ"
       tone="mist"
-      title="話した内容を、あなたのためのまとめに。"
+      title="話したことを、次の一歩につなげる。"
       lead={
         <div className="space-y-4">
           <p>
-            ご希望と同意がある場合、対話の内容をAIで整理し、今回の悩み・気づき・次にできることをまとめてメールでお送りします。話した内容を振り返り、次の行動を考えるためにご活用いただけます。
+            相談の中心は、人との対話です。ご希望と同意がある場合に限り、対話の内容を整理したまとめをメールでお送りします。話したことを振り返り、次の行動を考えるためにご活用ください。
           </p>
-          <p className="font-bold text-ink">AIによる記録を希望しない場合も、ご相談いただけます。</p>
+          <p className="font-bold text-ink">まとめや記録を希望しない場合も、ご相談いただけます。</p>
         </div>
       }
     >
       <div className="grid gap-8 md:grid-cols-[1.15fr_1fr]">
         <figure className="rounded-2xl border border-line bg-surface p-6 sm:p-8">
           <div className="flex flex-wrap items-center gap-3">
-            <span className="rounded-full bg-ink px-3 py-1 text-xs font-bold text-white">サンプル</span>
+            <span className="rounded-full bg-navy px-3 py-1 text-xs font-bold text-ivory">サンプル</span>
             <p className="text-sm text-ink-soft">His Recoveries｜対話のまとめ（イメージ）</p>
           </div>
           <dl className="mt-6 space-y-5">
@@ -53,7 +52,7 @@ export function Summary() {
         </figure>
 
         <div>
-          <h3 className="text-lg font-bold">AIによる記録・要約について</h3>
+          <h3 className="text-lg font-bold">まとめの作成に、記録やAIを使う場合</h3>
           <ul className="mt-4 space-y-3 text-[15px] text-ink-soft">
             <li>
               ・利用する場合は、<strong className="text-ink">何を記録するか、どのサービスを使うか、何のために使うか</strong>
@@ -72,7 +71,7 @@ export function Summary() {
             ))}
           </dl>
           <p className="mt-3 text-xs text-ink-soft">
-            これらは別々の処理です。どの処理を行うかは、事前のご説明でお伝えします。
+            これらは別々の処理です。実際に行う処理と利用するサービスは、事前のご説明でお伝えします。
           </p>
         </div>
       </div>

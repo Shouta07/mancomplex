@@ -1,10 +1,13 @@
 @import 'tailwindcss';
 
-/* ブランドカラーはロゴ（ネイビー #1f2e48 / セージ #839184）に合わせる */
+/*
+ * ブランドカラー：ロゴのネイビー #1f2e48 とセージ #839184 を軸に、
+ * ディープネイビー／チャコール／ウォームアイボリー／スレートグレーで構成する。
+ */
 @theme {
-  --color-canvas: #faf8f3;
+  --color-canvas: #f7f4ee;
   --color-surface: #ffffff;
-  --color-mist: #f1efea;
+  --color-mist: #eceae4;
   --color-sage-50: #eff2ee;
   --color-sage-100: #dfe5de;
   --color-sage-300: #b4beb4;
@@ -12,7 +15,13 @@
   --color-sage-700: #4a5f50;
   --color-sage-800: #3f5446;
   --color-ink: #1f2e48;
-  --color-ink-soft: #4a5568;
+  --color-ink-soft: #4a5260;
+  --color-navy: #1f2e48;
+  --color-navy-deep: #162135;
+  --color-charcoal: #1c1f24;
+  --color-slate: #5c6572;
+  --color-ivory: #f7f4ee;
+  --color-ivory-soft: #c9ccd3;
   --color-line: #e2ded5;
 
   --font-sans:
@@ -39,11 +48,11 @@
   h2,
   h3 {
     line-height: 1.5;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.03em;
     font-feature-settings: 'palt' 1;
   }
   :focus-visible {
-    outline: 3px solid var(--color-sage-700);
+    outline: 3px solid var(--color-sage-500);
     outline-offset: 3px;
     border-radius: 6px;
   }

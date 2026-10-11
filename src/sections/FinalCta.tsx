@@ -3,28 +3,30 @@ import { TIMEREX_URL, isBookingConfigured } from '../config/site'
 
 export function FinalCta() {
   return (
-    <section id="final-cta" aria-labelledby="final-cta-title" className="bg-sage-50 px-4 py-20 sm:px-6 sm:py-28">
+    <section id="final-cta" aria-labelledby="final-cta-title" className="bg-navy px-4 py-20 text-ivory sm:px-6 sm:py-28">
       <div className="mx-auto max-w-3xl text-center">
         <h2 id="final-cta-title" className="text-balance-ja text-[1.75rem] font-bold sm:text-4xl">
-          ひとりで抱え続けなくていい。
+          誰にも言えなかったことを、
+          <br />
+          まずは話してみませんか。
         </h2>
-        <p className="mt-6 text-base text-ink-soft sm:text-lg">
+        <p className="mt-6 text-base text-ivory-soft sm:text-lg">
           解決方法がまだ分からなくても大丈夫。
           <br />
-          まずは30分、話すことから始めてみませんか。
+          初回30分、話すことから始められます。
         </p>
         {isBookingConfigured && (
           <a
             href={TIMEREX_URL}
-            className="mt-9 inline-flex min-h-14 w-full items-center justify-center rounded-full bg-sage-700 px-8 text-lg font-bold text-white shadow-sm transition-colors hover:bg-sage-800 sm:w-auto"
+            className="mt-9 inline-flex min-h-14 w-full items-center justify-center rounded-full bg-ivory px-8 text-lg font-bold text-navy shadow-sm transition-colors hover:bg-white sm:w-auto"
           >
             無料で30分相談する
           </a>
         )}
-        <p className="mt-4 text-sm text-ink-soft">予約はメールで完結。LINE登録・アプリ不要。</p>
+        <p className="mt-4 text-sm text-ivory-soft">初回30分無料・オンラインで相談・LINE登録・アプリ不要</p>
       </div>
 
-      <div id="booking" className="mx-auto mt-16 max-w-4xl scroll-mt-20">
+      <div id="booking" className="mx-auto mt-16 max-w-4xl scroll-mt-20 rounded-3xl bg-canvas px-4 py-10 text-ink sm:px-10">
         <h3 className="text-center text-xl font-bold">予約カレンダー</h3>
         <ul className="mx-auto mt-5 max-w-2xl space-y-1.5 text-[15px] text-ink-soft">
           <li>・ご都合のよい日時を選び、メールアドレスを入力して予約します（予約はTimeRexで受け付けます）。</li>

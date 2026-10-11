@@ -1,8 +1,10 @@
 import { CtaButton } from './CtaButton'
 import { Logo } from './Logo'
+import { COUNSELOR_SECTION_VISIBLE } from '../config/counselors'
 
 const links = [
   { href: '/#about', label: 'サービスについて' },
+  ...(COUNSELOR_SECTION_VISIBLE ? [{ href: '/#counselors', label: '相談相手について' }] : []),
   { href: '/#flow', label: 'ご利用の流れ' },
   { href: '/#faq', label: 'よくある質問' },
 ]
@@ -19,8 +21,8 @@ export function Header({ showCta = true }: { showCta?: boolean }) {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
         <Logo className="text-lg sm:text-xl" />
         <div className="flex items-center gap-6">
-          <nav aria-label="メインメニュー" className="hidden md:block">
-            <ul className="flex gap-6 text-[15px] text-ink-soft">
+          <nav aria-label="メインメニュー" className="hidden lg:block">
+            <ul className="flex gap-5 text-[15px] text-ink-soft">
               {links.map((l) => (
                 <li key={l.href}>
                   <a href={l.href} className="py-2 hover:text-sage-700 hover:underline underline-offset-4">

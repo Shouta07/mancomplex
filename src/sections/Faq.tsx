@@ -1,42 +1,54 @@
 import type { ReactNode } from 'react'
 import { Section } from '../components/Section'
+import { COUNSELOR_SECTION_VISIBLE } from '../config/counselors'
+
+const link = (href: string, label: string) => (
+  <a href={href} className="text-sage-700 underline underline-offset-4">
+    {label}
+  </a>
+)
 
 const faqs: { q: string; a: ReactNode }[] = [
   {
     q: '本名を伝える必要はありますか？',
-    a: '予約時に必要な情報は最小限にします。Google Meetの表示名などの扱いは利用方法によって異なるため、予約前にご案内します。',
+    a: '予約にはメールアドレスなどの連絡先が必要です。予約時の名前の扱いやGoogle Meetでの表示名については、予約前にご案内します。',
   },
   {
-    q: '相談内容が他の人に知られませんか？',
+    q: '相談相手はどんな人ですか？',
     a: (
       <>
-        相談内容を本人の同意なく公開しません。個人情報の取り扱いについては
-        <a href="/privacy/" className="text-sage-700 underline underline-offset-4">
-          プライバシーポリシー
-        </a>
-        をご確認ください。
+        公開プロフィールでは実名や勤務先を掲載せず、相談に向き合う姿勢、バックグラウンド、得意なテーマ、対応範囲を明示しています。
+        {COUNSELOR_SECTION_VISIBLE && <>詳しくは{link('#counselors', '相談相手について')}をご覧ください。</>}
       </>
     ),
   },
   {
-    q: '専門家による診断や治療ですか？',
-    a: '医療機関や専門家による診断・治療ではありません。医療的な判断が必要な場合は、適切な専門家への相談をご案内します。',
+    q: '相談内容はどのように取り扱われますか？',
+    a: (
+      <>
+        相談の実施と、ご希望の場合のまとめの作成に使います。本人の同意なく公開することはありません。保存期間や削除方法は{link('/privacy/', 'プライバシーポリシー')}をご確認ください。
+      </>
+    ),
   },
   {
     q: 'AIによる記録は必須ですか？',
-    a: '必須ではありません。AIによる記録・要約を利用する場合は事前に説明し、同意をいただきます。同意しない場合も相談できます。',
+    a: '必須ではありません。録音・文字起こし・AI要約を利用する場合は事前に説明し、同意をいただきます。同意しない場合も相談できます。',
+  },
+  {
+    q: '医療的な診断や治療を受けられますか？',
+    a: 'His Recoveriesは医療機関ではなく、診断・治療は行いません。医療的な判断が必要と考えられる場合は、医療機関など適切な専門家への相談をご案内します。',
   },
   {
     q: '本当に無料ですか？',
-    a: '初回の30分相談は無料です。継続支援や有料サービスをご案内する場合は、内容と料金を事前にお伝えします。',
+    a: '初回の30分相談は無料です。継続支援や有料サービスをご案内する場合は、内容と料金を事前にお伝えし、お申し込みがない限り費用は発生しません。',
   },
   {
-    q: '何を話せばいいか分かりません。',
-    a: 'うまく言葉にできなくても大丈夫です。今困っていることや、気になっていることから、話せる範囲でお聞かせください。',
+    q: '何を話せばよいか分からなくても相談できますか？',
+    a: 'はい。うまく言葉にできなくても大丈夫です。今困っていることや気になっていることから、話せる範囲でお聞かせください。',
   },
   {
     q: 'どんな悩みでも相談できますか？',
-    a: '身体の悩み、性に関する悩み、自分への自信やコンプレックスなど、人に相談しにくい悩みをお聞きします。ただし、医療的な診断や緊急の対応が必要な場合は、専門機関への相談をお願いすることがあります。',
+    a: '身体の悩み、性に関する悩み、自信やコンプレックスなど、男性が人に相談しにくい悩みをお聞きします。医療的な診断や緊急の対応が必要な場合は、専門機関への相談をお願いすることがあります。',
   },
 ]
 
@@ -46,19 +58,19 @@ export function Faq() {
       <div className="divide-y divide-line overflow-hidden rounded-2xl border border-line bg-surface">
         {faqs.map((f) => (
           <details key={f.q} className="group">
-            <summary className="flex min-h-16 cursor-pointer items-center justify-between gap-4 px-5 py-4 text-left font-bold hover:bg-sage-50 sm:px-7">
+            <summary className="flex min-h-16 cursor-pointer items-center justify-between gap-4 px-5 py-4 text-left font-bold hover:bg-mist sm:px-7">
               <span className="flex gap-3">
                 <span aria-hidden="true" className="text-sage-700">
                   Q.
                 </span>
                 {f.q}
               </span>
-              <svg aria-hidden="true" viewBox="0 0 20 20" className="h-5 w-5 shrink-0 text-sage-700 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg aria-hidden="true" viewBox="0 0 20 20" className="h-5 w-5 shrink-0 text-navy transition-transform group-open:rotate-180" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M5 8l5 5 5-5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </summary>
             <div className="flex gap-3 px-5 pb-6 text-[15px] text-ink-soft sm:px-7 sm:text-base">
-              <span aria-hidden="true" className="font-bold text-sage-500">
+              <span aria-hidden="true" className="font-bold text-slate">
                 A.
               </span>
               <p>{f.a}</p>
