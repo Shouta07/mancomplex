@@ -2,7 +2,6 @@ import { SITE } from '../config/site'
 import logoMark from '../assets/logo-mark.png'
 
 const links = [
-  { href: '/#faq', label: 'よくある質問' },
   { href: '/company/', label: 'お問い合わせ' },
   { href: '/privacy/', label: 'プライバシーポリシー' },
   { href: '/terms/', label: '利用規約' },
@@ -11,7 +10,7 @@ const links = [
 /** フッター。運営者の名称は表示しない方針 */
 export function Footer() {
   return (
-    <footer className="bg-charcoal px-4 pb-28 pt-14 text-ivory-soft sm:px-6 sm:pb-14">
+    <footer className="bg-charcoal px-4 pb-14 pt-14 text-ivory-soft sm:px-6">
       <div className="mx-auto max-w-5xl">
         <p className="flex items-center gap-2.5 text-lg font-bold tracking-[0.06em] text-ivory">
           <img src={logoMark} alt="" width={32} height={32} className="h-8 w-8 rounded-md bg-ivory p-0.5" />
@@ -19,7 +18,7 @@ export function Footer() {
         </p>
         <p className="mt-3 text-sm">{SITE.tagline}</p>
         <nav aria-label="フッターメニュー" className="mt-8">
-          <ul className="grid grid-cols-2 gap-x-6 gap-y-1 text-[15px] sm:flex sm:flex-wrap">
+          <ul className="flex flex-wrap gap-x-6 gap-y-1 text-[15px]">
             {links.map((l) => (
               <li key={l.href}>
                 <a href={l.href} className="inline-block py-2 hover:text-ivory hover:underline underline-offset-4">

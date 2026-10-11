@@ -76,7 +76,7 @@ for (const href of hrefs) {
 // CTA
 const ctas = page.locator('a', { hasText: /無料で30分相談する|無料相談/ })
 const ctaCount = await ctas.count()
-ok(ctaCount >= 4, `CTA が複数配置されている (${ctaCount}件)`)
+ok(ctaCount >= 3, `CTA が複数配置されている (${ctaCount}件)`)
 for (let i = 0; i < ctaCount; i++) {
   const href = await ctas.nth(i).getAttribute('href')
   ok(href === '#booking' || href === 'https://timerex.net/s/hisrecoveries/4009b870', `CTA ${i + 1} の遷移先: ${href}`)
@@ -87,22 +87,6 @@ ok(await page.locator('#booking').isVisible(), 'ヘッダーCTAで予約セク�
 ok((await page.locator('#timerex_calendar').getAttribute('data-url')) === 'https://timerex.net/s/hisrecoveries/4009b870', 'TimeRex ウィジェットに予約URLが設定されている')
 ok((await page.locator('script#timerex_embed').getAttribute('src')) === 'https://asset.timerex.net/js/embed.js', 'TimeRex 埋め込みスクリプトが読み込まれる')
 
-// FAQ アコーディオン（キーボード操作）
-const first = page.locator('#faq details').first()
-await first.locator('summary').focus()
-await page.keyboard.press('Enter')
-ok(await first.evaluate((d) => d.open), 'FAQ がキーボードで開く')
-await page.keyboard.press('Enter')
-ok(!(await first.evaluate((d) => d.open)), 'FAQ がキーボードで閉じる')
-
-// 固定CTA：ファーストビューでは非表示、スクロール後に表示
-await page.goto(base + '/', { waitUntil: 'networkidle' })
-const sticky = page.locator('div.fixed.bottom-0')
-ok((await sticky.getAttribute('aria-hidden')) === 'true', '固定CTA はファーストビューでは非表示')
-await page.locator('#flow').scrollIntoViewIfNeeded()
-await page.waitForTimeout(500)
-ok((await sticky.getAttribute('aria-hidden')) === 'false', '固定CTA はスクロール後に表示')
-
 // 運営者の名称はサイトのどこにも表示しない
 const checker = await ctx.newPage()
 for (const path of pages) {
@@ -111,13 +95,6 @@ for (const path of pages) {
   ok(!/バイタリティ|Vitality Design/i.test(html), `${path} に運営会社名が含まれていない`)
 }
 await checker.close()
-
-// 相談相手セクション：架空の経歴を出さず、未入力はプレースホルダーとして明示
-const counselors = page.locator('#counselors')
-ok((await counselors.count()) === 1, '相談相手セクションが存在')
-const ph = await counselors.locator('[data-placeholder]').count()
-ok(ph > 0, `未入力の担当者情報はプレースホルダー表示 (${ph}件)`)
-ok(!/経験豊富|専門家が対応|実績No/.test(await counselors.innerText()), '根拠のない権威づけ表現がない')
 
 // トラッキング・解析スクリプトがないこと
 const scripts = await page.$$eval('script[src]', (s) => s.map((x) => x.src))

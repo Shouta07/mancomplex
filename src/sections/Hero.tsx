@@ -13,14 +13,12 @@ export function Hero() {
             <br />
             誰にも相談できない。
           </h1>
-          <div className="mt-7 space-y-4 text-base text-ink-soft sm:text-lg">
-            <p className="text-lg font-bold text-ink sm:text-xl">身体のこと。性のこと。自分への自信。</p>
-            <p>
-              調べても答えが見つからない。人には話しにくい。
-              <br />
-              その悩み、まずは30分だけ話してみませんか。
-            </p>
-          </div>
+          <p className="mt-7 text-base text-ink-soft sm:text-lg">
+            身体のこと。性のこと。自分への自信。
+            <br />
+            <span className="inline-block">その悩み、まずは30分だけ</span>
+            <span className="inline-block">話してみませんか。</span>
+          </p>
 
           <div className="mt-9">
             <CtaButton className="w-full sm:w-auto" />

@@ -1,39 +1,27 @@
 import { TimerexWidget } from '../components/TimerexWidget'
-import { TIMEREX_URL, isBookingConfigured } from '../config/site'
+
+const notes = ['医療機関ではありません。診断・治療は行いません', '相談内容を本人の同意なく公開しません', '記録やAIによるまとめは、同意した場合のみ']
 
 export function FinalCta() {
   return (
-    <section id="final-cta" aria-labelledby="final-cta-title" className="bg-navy px-4 py-20 text-ivory sm:px-6 sm:py-28">
+    <section id="final-cta" aria-labelledby="final-cta-title" className="bg-navy px-4 py-16 text-ivory sm:px-6 sm:py-24">
       <div className="mx-auto max-w-3xl text-center">
-        <h2 id="final-cta-title" className="text-balance-ja text-[1.75rem] font-bold sm:text-4xl">
-          誰にも言えなかったことを、
-          <br />
-          まずは話してみませんか。
+        <h2 id="final-cta-title" className="text-2xl font-bold leading-snug sm:text-4xl">
+          <span className="inline-block">誰にも言えなかったことを、</span>
+          <span className="inline-block">まずは話してみませんか。</span>
         </h2>
-        <p className="mt-6 text-base text-ivory-soft sm:text-lg">
-          解決方法がまだ分からなくても大丈夫。
-          <br />
-          初回30分、話すことから始められます。
-        </p>
-        {isBookingConfigured && (
-          <a
-            href={TIMEREX_URL}
-            className="mt-9 inline-flex min-h-14 w-full items-center justify-center rounded-full bg-ivory px-8 text-lg font-bold text-navy shadow-sm transition-colors hover:bg-white sm:w-auto"
-          >
-            無料で30分相談する
-          </a>
-        )}
-        <p className="mt-4 text-sm text-ivory-soft">初回30分無料・オンラインで相談・LINE登録・アプリ不要</p>
+        <p className="mt-5 text-base text-ivory-soft sm:text-lg">日時を選ぶだけ。Google Meetの参加URLがメールで届きます。</p>
       </div>
 
-      <div id="booking" className="mx-auto mt-16 max-w-4xl scroll-mt-20 rounded-3xl bg-canvas px-4 py-10 text-ink sm:px-10">
-        <h3 className="text-center text-xl font-bold">日時を選ぶ</h3>
-        <p className="mt-3 text-center text-[15px] text-ink-soft">日時を選んで予約するだけ。予約後、Google Meetの参加URLがメールで届きます。</p>
-        <div className="mt-8">
-          <TimerexWidget />
-        </div>
-        <p className="mx-auto mt-6 max-w-2xl text-xs leading-relaxed text-ink-soft">
-          予約情報は予約サービス「TimeRex」、相談は「Google Meet」を通じて取り扱われ、各サービスの規約・プライバシーポリシーが適用されます。His Recoveriesでの取り扱いは
+      <div id="booking" className="mx-auto mt-10 max-w-4xl scroll-mt-20 rounded-3xl bg-canvas px-4 py-8 text-ink sm:px-10 sm:py-10">
+        <TimerexWidget />
+        <ul className="mx-auto mt-6 max-w-2xl space-y-1 text-sm text-ink-soft">
+          {notes.map((n) => (
+            <li key={n}>・{n}</li>
+          ))}
+        </ul>
+        <p className="mx-auto mt-3 max-w-2xl text-xs leading-relaxed text-ink-soft">
+          予約はTimeRex、相談はGoogle Meetを利用します。個人情報の取り扱いは
           <a href="/privacy/" className="text-sage-700 underline underline-offset-4">
             プライバシーポリシー
           </a>

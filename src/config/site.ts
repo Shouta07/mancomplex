@@ -1,5 +1,3 @@
-import { COUNSELORS, COUNSELOR_SECTION_VISIBLE, isCounselorComplete } from './counselors'
-
 /**
  * サイト全体の設定を一元管理するファイル。
  *
@@ -51,7 +49,5 @@ export function missingConfig(): string[] {
   if (!isBookingConfigured) missing.push('TIMEREX_URL')
   if (!CONTACT_EMAIL) missing.push('CONTACT_EMAIL')
   if (!LEGAL_REVIEWED) missing.push('LEGAL_REVIEWED（法務確認）')
-  if (COUNSELOR_SECTION_VISIBLE && !COUNSELORS.every(isCounselorComplete))
-    missing.push('COUNSELORS（相談担当者の公開プロフィール：src/config/counselors.ts）')
   return missing
 }
