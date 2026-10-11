@@ -1,5 +1,3 @@
-import { CtaButton } from '../components/CtaButton'
-
 const worries = [
   '身体や見た目のことで、ずっと自信が持てない',
   '性のことを誰にも聞けず、ひとりで調べ続けている',
@@ -25,10 +23,6 @@ export function Concerns() {
             </li>
           ))}
         </ul>
-        <div className="mt-10 text-center">
-          <p className="mb-5 text-base font-bold sm:text-lg">ひとつでも当てはまるなら、まず30分、話してみませんか。</p>
-          <CtaButton className="w-full sm:w-auto" />
-        </div>
       </div>
     </section>
   )
