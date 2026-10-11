@@ -6,6 +6,26 @@
   "trailingSlash": true,
   "redirects": [
     {
+      "source": "/company",
+      "destination": "/privacy/",
+      "permanent": true
+    },
+    {
+      "source": "/company/",
+      "destination": "/privacy/",
+      "permanent": true
+    },
+    {
+      "source": "/terms",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/terms/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/areas/:path+",
       "destination": "https://tashikame.app/areas/:path+",
       "permanent": true

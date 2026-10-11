@@ -7,8 +7,6 @@ import { missingConfig } from './src/config/site'
 const pages = {
   main: 'index.html',
   privacy: 'privacy/index.html',
-  terms: 'terms/index.html',
-  company: 'company/index.html',
 }
 
 /**

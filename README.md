@@ -24,8 +24,7 @@ npm run test:e2e     # ビルド済み dist に対する自動テスト（Playwr
 | --- | --- | --- |
 | `TIMEREX_URL` | 設定済み | `https://timerex.net/s/hisrecoveries/4009b870`。すべてのCTAは `#booking`（TimeRex埋め込み）へ、最終CTAのボタンはこのURLへ遷移します |
 | `CONTACT_EMAIL` | **未設定** | 問い合わせ用メールアドレス |
-| `LEGAL_REVIEWED` | `false` | 法務確認が終わるまで、規約・ポリシーに「確認中の案」と表示されます |
-| `LEGAL_EFFECTIVE_DATE` | **未設定** | 規約・ポリシーの制定日 |
+| `LEGAL_REVIEWED` | `false` | プライバシーポリシーの法務確認が済んだら `true`（ビルド時の警告が消えるだけで、画面表示は変わりません） |
 | `VITE_SITE_URL`（環境変数） | **未設定** | 本番URL。設定すると canonical / og:url / og:image を出力します（`.env.example` 参照） |
 
 未設定の項目は、画面上に黄色の「【公開前に入力：…】」として表示され、`npm run build` 時にも警告が出ます。実在しない値は入れないでください。
@@ -33,11 +32,11 @@ npm run test:e2e     # ビルド済み dist に対する自動テスト（Playwr
 ## ディレクトリ構成
 
 ```
-index.html, privacy/, terms/, company/   各ページのHTML（タイトル・OGPなど）
+index.html, privacy/                     各ページのHTML（タイトル・OGPなど）
 src/config/site.ts                       予約URL・問い合わせ先などの設定
 src/sections/                            LPの各セクション
 src/components/                          ヘッダー・CTA・TimeRex埋め込み・固定CTAなど
-src/pages/                               トップ・プライバシーポリシー（案）・利用規約（案）・お問い合わせ
+src/pages/                               トップ・プライバシーポリシー
 scripts/prerender.mjs                    ビルド後の静的HTML書き出し
 tests/e2e.mjs                            自動テスト
 docs/LAUNCH_CHECKLIST.md                 公開前の確認事項・運用設計
@@ -48,6 +47,7 @@ brand/                                   ロゴ原本（logo-original.jpg）と�
 
 - LPの役割は「悩みを想起させて、無料30分相談の予約につなげる」ことだけ。構成は ファーストビュー → 悩みのチェックリスト → 相談を聞く人について → 予約カレンダー のみ
 - 運営者の名称（会社名・個人名）はサイトのどこにも表示しない。名称・所在地等は問い合わせに応じて開示する（自動テストで確認）
+- ページはトップとプライバシーポリシーの2つだけ。利用規約・お問い合わせページは置かない（無料サービスのため法令上の義務はない。問い合わせ先はプライバシーポリシーに記載）
 
 ## ブランド
 
@@ -55,7 +55,7 @@ brand/                                   ロゴ原本（logo-original.jpg）と�
 
 ## デプロイ
 
-`npm run build` で生成される `dist/` を静的ホスティング（Vercel / Netlify / Cloudflare Pages など）に配置してください。`/privacy/` のようなディレクトリ形式のURLを使っています。
+`npm run build` で生成される `dist/` を静的ホスティング（Vercel / Netlify / Cloudflare Pages など）に配置してください。`/privacy/` のようなディレクトリ形式のURLを使っています。廃止した `/company/` は `/privacy/` へ、`/terms/` はトップへ 301 しています（`vercel.json`）。
 
 ## 旧ドメインから引き継いでいる301（`vercel.json`）
 

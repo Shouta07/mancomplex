@@ -2,9 +2,7 @@ import { SITE } from '../config/site'
 import logoMark from '../assets/logo-mark.png'
 
 const links = [
-  { href: '/company/', label: 'お問い合わせ' },
   { href: '/privacy/', label: 'プライバシーポリシー' },
-  { href: '/terms/', label: '利用規約' },
 ]
 
 /** フッター。運営者の名称は表示しない方針 */

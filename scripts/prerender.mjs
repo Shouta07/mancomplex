@@ -6,7 +6,7 @@ import { pathToFileURL } from 'node:url'
 const root = resolve(import.meta.dirname, '..')
 const { render } = await import(pathToFileURL(resolve(root, 'dist-ssr/entry-server.js')).href)
 
-const pages = { home: 'index.html', privacy: 'privacy/index.html', terms: 'terms/index.html', company: 'company/index.html' }
+const pages = { home: 'index.html', privacy: 'privacy/index.html' }
 for (const [page, file] of Object.entries(pages)) {
   const path = resolve(root, 'dist', file)
   const html = await readFile(path, 'utf8')

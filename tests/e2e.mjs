@@ -18,7 +18,7 @@ const ok = (cond, msg) => {
   if (!cond) failures++
 }
 
-const pages = ['/', '/privacy/', '/terms/', '/company/']
+const pages = ['/', '/privacy/']
 const viewports = { mobile: { width: 375, height: 812 }, desktop: { width: 1366, height: 900 } }
 
 for (const [vpName, viewport] of Object.entries(viewports)) {

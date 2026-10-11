@@ -23,14 +23,8 @@ export const CONTACT_EMAIL = ''
  * 名称・所在地等は、問い合わせに応じて個別に開示する（プライバシーポリシー参照）。
  */
 
-/**
- * プライバシーポリシー・利用規約が法務確認済みか。
- * false の間は、各ページ上部に「確認中の案」である旨を表示します。
- */
+/** プライバシーポリシーが法務確認済みか（ビルド時の警告用。画面には表示しない） */
 export const LEGAL_REVIEWED = false
-
-/** 各法務文書の制定日（確定後に入力） */
-export const LEGAL_EFFECTIVE_DATE = ''
 
 export const SITE = {
   name: 'His Recoveries',
