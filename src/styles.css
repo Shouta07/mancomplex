@@ -1,0 +1,74 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-canvas: #faf8f3;
+  --color-surface: #ffffff;
+  --color-mist: #f1efea;
+  --color-sage-50: #eef3ef;
+  --color-sage-100: #dfe9e2;
+  --color-sage-300: #a9c2b1;
+  --color-sage-500: #6f957d;
+  --color-sage-700: #2f5d4e;
+  --color-sage-800: #244a3e;
+  --color-ink: #1d2733;
+  --color-ink-soft: #46505c;
+  --color-line: #e2ded5;
+
+  --font-sans:
+    'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', 'Yu Gothic UI', 'Yu Gothic', Meiryo,
+    system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    line-height: 1.9;
+    letter-spacing: 0.02em;
+    font-feature-settings: 'palt' 0;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,
+  h2,
+  h3 {
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    font-feature-settings: 'palt' 1;
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-sage-700);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* 日本語の改行位置を自然にする（対応ブラウザのみ） */
+  .text-balance-ja {
+    word-break: auto-phrase;
+    text-wrap: balance;
+  }
+  details > summary {
+    list-style: none;
+  }
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+}
