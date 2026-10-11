@@ -1,6 +1,6 @@
 import { CtaButton } from '../components/CtaButton'
 
-const points = ['初回30分無料', 'オンラインで相談', 'LINE登録・アプリ不要']
+const points = ['自身も悩んだ経験のある聞き手', '匿名でオンライン相談', 'LINE登録・アプリ不要']
 
 export function Hero() {
   return (
