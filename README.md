@@ -47,3 +47,30 @@ docs/LAUNCH_CHECKLIST.md                 公開前の確認事項・運用設計
 ## デプロイ
 
 `npm run build` で生成される `dist/` を静的ホスティング（Vercel / Netlify / Cloudflare Pages など）に配置してください。`/privacy/` のようなディレクトリ形式のURLを使っています。
+
+## 旧ドメインから引き継いでいる301（`vercel.json`）
+
+このサイトは `hisrecoveries.com` で出す。
+そのドメインは 2026-10-03 まで、別のサイト（記事71本）が使っていた。
+
+記事は `tashikame.app` へ移してあり、いまは Vercel のドメイン設定で
+ドメインごと 301 している。このサイトを載せると、その301が消える。
+消えると、外から貼られている記事リンクが全部死ぬ。
+
+だから、この2経路だけは受けてから渡す。
+
+| 経路 | 本数 | 行き先 |
+|---|---|---|
+| `/areas/*` | 62 | `tashikame.app/areas/*`（同じパス） |
+| `/situations/*` | 9 | `tashikame.app/situations/*`（同じパス） |
+| `/areas` `/situations` | — | `tashikame.app/articles`（一覧は向こうに無いため） |
+
+このサイトはどちらの経路も使っていないので、ぶつからない。
+
+### いつ消すか
+
+移行が終われば要らない。目安は **2027-10 以降**。
+早く切ると、移りきっていない評価とリンクがそこで死ぬ。
+
+Search Console で `hisrecoveries.com` の `/areas/` への流入が
+ほぼゼロになったことを確認してから消すこと。
