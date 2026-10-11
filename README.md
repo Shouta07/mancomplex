@@ -42,7 +42,12 @@ src/pages/                               トップ・プライバシーポリシ
 scripts/prerender.mjs                    ビルド後の静的HTML書き出し
 tests/e2e.mjs                            自動テスト
 docs/LAUNCH_CHECKLIST.md                 公開前の確認事項・運用設計
+brand/                                   ロゴ原本（logo-original.jpg）と背景透過版、生成スクリプト
 ```
+
+## ブランド
+
+ロゴは `brand/logo-original.jpg`。サイトでは背景を透過したマーク（`src/assets/logo-mark.png`）を使用し、配色はロゴのネイビー `#1f2e48` とセージ `#839184` に合わせています（`src/styles.css`）。
 
 ## デプロイ
 

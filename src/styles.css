@@ -1,17 +1,18 @@
 @import 'tailwindcss';
 
+/* ブランドカラーはロゴ（ネイビー #1f2e48 / セージ #839184）に合わせる */
 @theme {
   --color-canvas: #faf8f3;
   --color-surface: #ffffff;
   --color-mist: #f1efea;
-  --color-sage-50: #eef3ef;
-  --color-sage-100: #dfe9e2;
-  --color-sage-300: #a9c2b1;
-  --color-sage-500: #6f957d;
-  --color-sage-700: #2f5d4e;
-  --color-sage-800: #244a3e;
-  --color-ink: #1d2733;
-  --color-ink-soft: #46505c;
+  --color-sage-50: #eff2ee;
+  --color-sage-100: #dfe5de;
+  --color-sage-300: #b4beb4;
+  --color-sage-500: #839184;
+  --color-sage-700: #4a5f50;
+  --color-sage-800: #3f5446;
+  --color-ink: #1f2e48;
+  --color-ink-soft: #4a5568;
   --color-line: #e2ded5;
 
   --font-sans:

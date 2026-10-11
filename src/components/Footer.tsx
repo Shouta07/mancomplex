@@ -1,4 +1,5 @@
 import { OPERATOR } from '../config/site'
+import logoMark from '../assets/logo-mark.png'
 
 const links = [
   { href: '/#about', label: 'サービスについて' },
@@ -13,7 +14,10 @@ export function Footer() {
   return (
     <footer className="border-t border-line bg-mist px-4 pb-28 pt-14 sm:px-6 sm:pb-14">
       <div className="mx-auto max-w-5xl">
-        <p className="text-lg font-bold tracking-[0.06em]">His Recoveries</p>
+        <p className="flex items-center gap-2.5 text-lg font-bold tracking-[0.06em]">
+          <img src={logoMark} alt="" width={32} height={32} className="h-8 w-8" />
+          His Recoveries
+        </p>
         <nav aria-label="フッターメニュー" className="mt-6">
           <ul className="grid grid-cols-2 gap-x-6 gap-y-1 text-[15px] text-ink-soft sm:flex sm:flex-wrap">
             {links.map((l) => (
