@@ -3,7 +3,7 @@ import { COUNSELORS, COUNSELOR_SECTION_VISIBLE, isCounselorComplete } from './co
 /**
  * サイト全体の設定を一元管理するファイル。
  *
- * - 予約URL・問い合わせ先・運営者情報はすべてここで管理します。
+ * - 予約URL・問い合わせ先などはすべてここで管理します。
  * - 未確認の情報は空文字のままにしてください（実在しない値を入れないこと）。
  *   空文字の項目は、画面上に「公開前に入力」と表示され、ビルド時にも警告が出ます。
  */
@@ -21,18 +21,9 @@ export const isBookingConfigured = /^https:\/\/timerex\.net\/s\/[^\s]+$/.test(TI
 export const CONTACT_EMAIL = ''
 
 /**
- * 事業者情報。未確認の項目は空文字のままにする。
- * ブランドの表側（LP）では会社名を前面に出さない方針。会社名は事業者情報ページ・
- * プライバシーポリシー・利用規約など、法令上・契約上必要な場所にだけ表示する。
+ * 運営者の名称（会社名・個人名）はサイトのどこにも表示しない方針。
+ * 名称・所在地等は、問い合わせに応じて個別に開示する（プライバシーポリシー参照）。
  */
-export const OPERATOR = {
-  companyName: 'バイタリティデザイン合同会社',
-  companyNameEn: 'Vitality Design',
-  representative: '',
-  address: '',
-  email: CONTACT_EMAIL,
-  established: '',
-} as const
 
 /**
  * プライバシーポリシー・利用規約が法務確認済みか。
@@ -59,8 +50,6 @@ export function missingConfig(): string[] {
   const missing: string[] = []
   if (!isBookingConfigured) missing.push('TIMEREX_URL')
   if (!CONTACT_EMAIL) missing.push('CONTACT_EMAIL')
-  if (!OPERATOR.representative) missing.push('OPERATOR.representative')
-  if (!OPERATOR.address) missing.push('OPERATOR.address')
   if (!LEGAL_REVIEWED) missing.push('LEGAL_REVIEWED（法務確認）')
   if (COUNSELOR_SECTION_VISIBLE && !COUNSELORS.every(isCounselorComplete))
     missing.push('COUNSELORS（相談担当者の公開プロフィール：src/config/counselors.ts）')

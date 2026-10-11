@@ -1,6 +1,6 @@
 # His Recoveries LP
 
-人に言いにくい悩みを相談できるサービス「His Recoveries」（運営：バイタリティデザイン合同会社）のランディングページです。
+男性が人に言いにくい悩みを相談できるサービス「His Recoveries」のランディングページです。
 
 - Vite + React 18 + TypeScript + Tailwind CSS v4
 - ビルド時に全ページを静的HTMLへプリレンダリング（JS無効環境・検索エンジンでも本文が表示されます）
@@ -24,7 +24,7 @@ npm run test:e2e     # ビルド済み dist に対する自動テスト（Playwr
 | --- | --- | --- |
 | `TIMEREX_URL` | 設定済み | `https://timerex.net/s/hisrecoveries/4009b870`。すべてのCTAは `#booking`（TimeRex埋め込み）へ、最終CTAのボタンはこのURLへ遷移します |
 | `CONTACT_EMAIL` | **未設定** | 問い合わせ用メールアドレス |
-| `OPERATOR.representative` / `OPERATOR.address` | **未設定** | 運営者情報 |
+| `src/config/counselors.ts` | **未入力** | 相談担当者の公開プロフィール（ニックネーム・姿勢・バックグラウンド・テーマ）。架空の経歴は入れない |
 | `LEGAL_REVIEWED` | `false` | 法務確認が終わるまで、規約・ポリシーに「確認中の案」と表示されます |
 | `LEGAL_EFFECTIVE_DATE` | **未設定** | 規約・ポリシーの制定日 |
 | `VITE_SITE_URL`（環境変数） | **未設定** | 本番URL。設定すると canonical / og:url / og:image を出力します（`.env.example` 参照） |
@@ -35,15 +35,20 @@ npm run test:e2e     # ビルド済み dist に対する自動テスト（Playwr
 
 ```
 index.html, privacy/, terms/, company/   各ページのHTML（タイトル・OGPなど）
-src/config/site.ts                       予約URL・運営者情報などの設定
+src/config/site.ts                       予約URL・問い合わせ先などの設定
 src/sections/                            LPの各セクション
 src/components/                          ヘッダー・CTA・TimeRex埋め込み・固定CTAなど
-src/pages/                               トップ・プライバシーポリシー（案）・利用規約（案）・運営者情報
+src/pages/                               トップ・プライバシーポリシー（案）・利用規約（案）・お問い合わせ
 scripts/prerender.mjs                    ビルド後の静的HTML書き出し
 tests/e2e.mjs                            自動テスト
 docs/LAUNCH_CHECKLIST.md                 公開前の確認事項・運用設計
 brand/                                   ロゴ原本（logo-original.jpg）と背景透過版、生成スクリプト
 ```
+
+## 方針
+
+- LPの役割は「悩みを想起させて、無料30分相談の予約につなげる」ことだけ。構成は ファーストビュー → 悩みのチェックリスト → 相談の流れ → 相談相手 → FAQ → 予約 に絞っている
+- 運営者の名称（会社名・個人名）はサイトのどこにも表示しない。名称・所在地等は問い合わせに応じて開示する（自動テストで確認）
 
 ## ブランド
 

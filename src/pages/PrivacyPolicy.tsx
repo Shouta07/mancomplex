@@ -1,6 +1,6 @@
 import { DocLayout, DocSection } from '../components/DocLayout'
 import { Placeholder } from '../components/Placeholder'
-import { CONTACT_EMAIL, OPERATOR } from '../config/site'
+import { CONTACT_EMAIL } from '../config/site'
 
 /**
  * プライバシーポリシー（案）
@@ -11,7 +11,7 @@ export function PrivacyPolicy() {
   return (
     <DocLayout title="プライバシーポリシー" legal>
       <p>
-        {OPERATOR.companyName}（以下「当社」）は、当社が運営する相談サービス「His Recoveries」（以下「本サービス」）における個人情報を、個人情報の保護に関する法律その他の関係法令に従い、以下のとおり取り扱います。
+        相談サービス「His Recoveries」（以下「本サービス」）の運営者（以下「運営者」）は、本サービスにおける個人情報を、個人情報の保護に関する法律その他の関係法令に従い、以下のとおり取り扱います。
       </p>
 
       <DocSection title="1. 取得する情報">
@@ -24,7 +24,7 @@ export function PrivacyPolicy() {
           <li>お問い合わせ時：メールアドレス、お問い合わせ内容</li>
         </ul>
         <p>
-          相談内容には、健康状態など要配慮個人情報に当たる情報が含まれる場合があります。当社は、要配慮個人情報をあらかじめご本人の同意を得ないで取得しません。予約フォームで詳しい悩みの記入を求めることはありません。
+          相談内容には、健康状態など要配慮個人情報に当たる情報が含まれる場合があります。運営者は、要配慮個人情報をあらかじめご本人の同意を得ないで取得しません。予約フォームで詳しい悩みの記入を求めることはありません。
         </p>
       </DocSection>
 
@@ -73,14 +73,14 @@ export function PrivacyPolicy() {
 
       <DocSection title="4-2. 相談担当者について">
         <p>
-          相談担当者は、公開プロフィール上ではニックネームで活動します。相談担当者は当社の管理のもとで相談を行い、本ポリシーに従って個人情報を取り扱います。相談担当者が当社の従業員以外の場合の契約形態・守秘義務：
+          相談担当者は、公開プロフィール上ではニックネームで活動します。相談担当者は運営者の管理のもとで相談を行い、本ポリシーに従って個人情報を取り扱います。相談担当者が運営者の従業員以外の場合の契約形態・守秘義務：
           <Placeholder label="担当者との契約形態・守秘義務の内容" />
         </p>
       </DocSection>
 
       <DocSection title="5. 第三者への提供・公開">
         <p>
-          当社は、法令に基づく場合を除き、ご本人の同意なく個人情報を第三者に提供しません。また、ご本人の同意なく相談内容を公開しません。
+          運営者は、法令に基づく場合を除き、ご本人の同意なく個人情報を第三者に提供しません。また、ご本人の同意なく相談内容を公開しません。
         </p>
       </DocSection>
 
@@ -93,12 +93,12 @@ export function PrivacyPolicy() {
             AIによる記録（録音・文字起こし・要約）：<Placeholder label="保存場所・保存期間・削除方法" />
           </li>
         </ul>
-        <p>削除をご希望の場合は、下記窓口までご連絡ください。外部サービス上の技術的な利用記録など、当社が削除できない情報がある場合は、その旨をご説明します。</p>
+        <p>削除をご希望の場合は、下記窓口までご連絡ください。外部サービス上の技術的な利用記録など、運営者が削除できない情報がある場合は、その旨をご説明します。</p>
       </DocSection>
 
       <DocSection title="7. 安全管理措置">
         <p>
-          当社は、個人情報へのアクセス権限を本サービスの提供に必要な担当者に限定するなど、漏えい・滅失・毀損を防止するための措置を講じます。具体的な措置：
+          運営者は、個人情報へのアクセス権限を本サービスの提供に必要な担当者に限定するなど、漏えい・滅失・毀損を防止するための措置を講じます。具体的な措置：
           <Placeholder label="アクセス権限・保存先の管理方法" />
         </p>
       </DocSection>
@@ -117,12 +117,9 @@ export function PrivacyPolicy() {
 
       <DocSection title="10. お問い合わせ窓口">
         <p>
-          {OPERATOR.companyName}
-          <br />
-          所在地：{OPERATOR.address || <Placeholder label="所在地" />}
-          <br />
-          代表者：{OPERATOR.representative || <Placeholder label="代表者氏名" />}
-          <br />
+          個人情報の取り扱いに関するお問い合わせ・ご請求は、下記までご連絡ください。運営者の名称・住所・代表者の氏名は、ご請求があった場合に遅滞なくお知らせします。
+        </p>
+        <p>
           メール：
           {CONTACT_EMAIL ? (
             <a href={`mailto:${CONTACT_EMAIL}`} className="text-sage-700 underline underline-offset-4">

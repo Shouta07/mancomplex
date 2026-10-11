@@ -103,22 +103,18 @@ await page.locator('#flow').scrollIntoViewIfNeeded()
 await page.waitForTimeout(500)
 ok((await sticky.getAttribute('aria-hidden')) === 'false', '固定CTA はスクロール後に表示')
 
-// 匿名性の方針：LPに会社名を出さない／法令上必要な事業者情報ページには残す
-const lpText = await page.locator('body').innerText()
-ok(!/バイタリティデザイン|Vitality Design/.test(lpText), 'LP に運営会社名が表示されていない')
-const companyPage = await ctx.newPage()
-await companyPage.goto(base + '/company/')
-ok((await companyPage.locator('body').innerText()).includes('バイタリティデザイン合同会社'), '事業者情報ページには運営事業者名が掲載されている')
-for (const legal of ['/privacy/', '/terms/']) {
-  await companyPage.goto(base + legal)
-  ok((await companyPage.locator('body').innerText()).includes('バイタリティデザイン合同会社'), `${legal} に事業者名が掲載されている`)
+// 運営者の名称はサイトのどこにも表示しない
+const checker = await ctx.newPage()
+for (const path of pages) {
+  await checker.goto(base + path)
+  const html = await checker.content()
+  ok(!/バイタリティ|Vitality Design/i.test(html), `${path} に運営会社名が含まれていない`)
 }
-await companyPage.close()
+await checker.close()
 
 // 相談相手セクション：架空の経歴を出さず、未入力はプレースホルダーとして明示
 const counselors = page.locator('#counselors')
 ok((await counselors.count()) === 1, '相談相手セクションが存在')
-ok((await page.locator('header nav a[href="/#counselors"]').count()) === 1, 'ヘッダーに「相談相手について」リンク')
 const ph = await counselors.locator('[data-placeholder]').count()
 ok(ph > 0, `未入力の担当者情報はプレースホルダー表示 (${ph}件)`)
 ok(!/経験豊富|専門家が対応|実績No/.test(await counselors.innerText()), '根拠のない権威づけ表現がない')

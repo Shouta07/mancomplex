@@ -27,12 +27,8 @@ export function FinalCta() {
       </div>
 
       <div id="booking" className="mx-auto mt-16 max-w-4xl scroll-mt-20 rounded-3xl bg-canvas px-4 py-10 text-ink sm:px-10">
-        <h3 className="text-center text-xl font-bold">予約カレンダー</h3>
-        <ul className="mx-auto mt-5 max-w-2xl space-y-1.5 text-[15px] text-ink-soft">
-          <li>・ご都合のよい日時を選び、メールアドレスを入力して予約します（予約はTimeRexで受け付けます）。</li>
-          <li>・相談テーマと今の状況を選択式でお聞きします。詳しい悩みを書く必要はありません。</li>
-          <li>・ご予約後、Google Meetの参加URLがメールで届きます。</li>
-        </ul>
+        <h3 className="text-center text-xl font-bold">日時を選ぶ</h3>
+        <p className="mt-3 text-center text-[15px] text-ink-soft">日時を選んで予約するだけ。予約後、Google Meetの参加URLがメールで届きます。</p>
         <div className="mt-8">
           <TimerexWidget />
         </div>

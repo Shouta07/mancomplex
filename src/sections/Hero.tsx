@@ -1,6 +1,6 @@
 import { CtaButton } from '../components/CtaButton'
 
-const points = ['初回30分無料', 'オンラインで相談', 'LINE登録・アプリ不要', '相談相手も公開プロフィールでは匿名']
+const points = ['初回30分無料', 'オンラインで相談', 'LINE登録・アプリ不要']
 
 export function Hero() {
   return (
@@ -17,11 +17,8 @@ export function Hero() {
             <p className="text-lg font-bold text-ink sm:text-xl">身体のこと。性のこと。自分への自信。</p>
             <p>
               調べても答えが見つからない。人には話しにくい。
-              <br className="hidden sm:inline" />
-              そんな悩みを、ひとりで抱え続けなくていい。
-            </p>
-            <p className="text-ink">
-              His Recoveriesは、男性が人には話しにくい悩みを安心して話し、状況を整理して次の一歩を考えるための相談サービスです。
+              <br />
+              その悩み、まずは30分だけ話してみませんか。
             </p>
           </div>
 
@@ -37,9 +34,6 @@ export function Hero() {
                 </li>
               ))}
             </ul>
-            <p className="mt-4 text-sm text-ink-soft">
-              相談はGoogle Meetで行います。予約はTimeRexから、ご連絡はメールで行います。
-            </p>
           </div>
         </div>
 
@@ -52,7 +46,7 @@ export function Hero() {
 /** 2つの形が穏やかに向き合う抽象ビジュアル（装飾）。ロゴのネイビーとセージを使う */
 function HeroVisual() {
   return (
-    <div aria-hidden="true" className="mx-auto w-full max-w-[220px] sm:max-w-sm md:max-w-none">
+    <div aria-hidden="true" className="hidden w-full md:block">
       <svg viewBox="0 0 400 340" className="h-auto w-full">
         <rect x="10" y="20" width="380" height="300" rx="150" className="fill-mist" />
         <rect x="104" y="92" width="72" height="176" rx="36" className="fill-navy" />

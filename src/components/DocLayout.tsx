@@ -6,7 +6,7 @@ import { Placeholder } from './Placeholder'
 
 type Props = { title: string; legal?: boolean; children: ReactNode }
 
-/** プライバシーポリシー・利用規約・運営者情報などの文書ページ共通レイアウト */
+/** プライバシーポリシー・利用規約・お問い合わせなどの文書ページ共通レイアウト */
 export function DocLayout({ title, legal = false, children }: Props) {
   return (
     <>

@@ -2,16 +2,13 @@ import { Header } from '../components/Header'
 import { Footer } from '../components/Footer'
 import { StickyCta } from '../components/StickyCta'
 import { Hero } from '../sections/Hero'
-import { Survey } from '../sections/Survey'
 import { Concerns } from '../sections/Concerns'
-import { Values } from '../sections/Values'
-import { Counselors } from '../sections/Counselors'
 import { Flow } from '../sections/Flow'
-import { Summary } from '../sections/Summary'
-import { Privacy } from '../sections/Privacy'
+import { Counselors } from '../sections/Counselors'
 import { Faq } from '../sections/Faq'
 import { FinalCta } from '../sections/FinalCta'
 
+/** 悩みを想起させ、予約につなげる。それ以外の情報は最小限にする */
 export function Home() {
   return (
     <>
@@ -19,12 +16,8 @@ export function Home() {
       <main id="main">
         <Hero />
         <Concerns />
-        <Survey />
-        <Values />
-        <Counselors />
-        <Privacy />
         <Flow />
-        <Summary />
+        <Counselors />
         <Faq />
         <FinalCta />
       </main>

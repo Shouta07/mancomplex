@@ -1,60 +1,27 @@
-import type { ReactNode } from 'react'
 import { Section } from '../components/Section'
-import { COUNSELOR_SECTION_VISIBLE } from '../config/counselors'
 
-const link = (href: string, label: string) => (
-  <a href={href} className="text-sage-700 underline underline-offset-4">
-    {label}
-  </a>
-)
-
-const faqs: { q: string; a: ReactNode }[] = [
+const faqs = [
+  {
+    q: '本当に無料ですか？',
+    a: '初回の30分相談は無料です。有料のサービスをご案内する場合は、内容と料金を事前にお伝えし、お申し込みがない限り費用は発生しません。',
+  },
+  {
+    q: '何を話せばよいか分かりません。',
+    a: 'うまく言葉にできなくても大丈夫です。今困っていることや気になっていることから、話せる範囲でお聞かせください。',
+  },
   {
     q: '本名を伝える必要はありますか？',
     a: '予約にはメールアドレスなどの連絡先が必要です。予約時の名前の扱いやGoogle Meetでの表示名については、予約前にご案内します。',
   },
   {
-    q: '相談相手はどんな人ですか？',
-    a: (
-      <>
-        公開プロフィールでは実名や勤務先を掲載せず、相談に向き合う姿勢、バックグラウンド、得意なテーマ、対応範囲を明示しています。
-        {COUNSELOR_SECTION_VISIBLE && <>詳しくは{link('#counselors', '相談相手について')}をご覧ください。</>}
-      </>
-    ),
-  },
-  {
-    q: '相談内容はどのように取り扱われますか？',
-    a: (
-      <>
-        相談の実施と、ご希望の場合のまとめの作成に使います。本人の同意なく公開することはありません。保存期間や削除方法は{link('/privacy/', 'プライバシーポリシー')}をご確認ください。
-      </>
-    ),
-  },
-  {
-    q: 'AIによる記録は必須ですか？',
-    a: '必須ではありません。録音・文字起こし・AI要約を利用する場合は事前に説明し、同意をいただきます。同意しない場合も相談できます。',
-  },
-  {
     q: '医療的な診断や治療を受けられますか？',
-    a: 'His Recoveriesは医療機関ではなく、診断・治療は行いません。医療的な判断が必要と考えられる場合は、医療機関など適切な専門家への相談をご案内します。',
-  },
-  {
-    q: '本当に無料ですか？',
-    a: '初回の30分相談は無料です。継続支援や有料サービスをご案内する場合は、内容と料金を事前にお伝えし、お申し込みがない限り費用は発生しません。',
-  },
-  {
-    q: '何を話せばよいか分からなくても相談できますか？',
-    a: 'はい。うまく言葉にできなくても大丈夫です。今困っていることや気になっていることから、話せる範囲でお聞かせください。',
-  },
-  {
-    q: 'どんな悩みでも相談できますか？',
-    a: '身体の悩み、性に関する悩み、自信やコンプレックスなど、男性が人に相談しにくい悩みをお聞きします。医療的な診断や緊急の対応が必要な場合は、専門機関への相談をお願いすることがあります。',
+    a: '医療機関ではないため、診断・治療は行いません。医療的な判断が必要と考えられる場合は、医療機関への相談をご案内します。',
   },
 ]
 
 export function Faq() {
   return (
-    <Section id="faq" eyebrow="FAQ" tone="mist" title="よくある質問">
+    <Section id="faq" tone="mist" title="よくある質問">
       <div className="divide-y divide-line overflow-hidden rounded-2xl border border-line bg-surface">
         {faqs.map((f) => (
           <details key={f.q} className="group">
@@ -78,6 +45,13 @@ export function Faq() {
           </details>
         ))}
       </div>
+      <p className="mt-6 text-sm text-ink-soft">
+        個人情報の取り扱いは
+        <a href="/privacy/" className="text-sage-700 underline underline-offset-4">
+          プライバシーポリシー
+        </a>
+        をご確認ください。
+      </p>
     </Section>
   )
 }
