@@ -1,7 +1,7 @@
 /**
  * サイト全体の設定を一元管理するファイル。
  *
- * - 予約URL・問い合わせ先などはすべてここで管理します。
+ * - 予約URLなどはすべてここで管理します。
  * - 未確認の情報は空文字のままにしてください（実在しない値を入れないこと）。
  *   空文字の項目は、画面上に「公開前に入力」と表示され、ビルド時にも警告が出ます。
  */
@@ -15,12 +15,8 @@ export const TIMEREX_EMBED_SCRIPT = 'https://asset.timerex.net/js/embed.js'
 /** TimeRex のURLとして妥当か（未設定・誤設定の検出用） */
 export const isBookingConfigured = /^https:\/\/timerex\.net\/s\/[^\s]+$/.test(TIMEREX_URL)
 
-/** 問い合わせ用メールアドレス（未提供のため空。公開前に入力） */
-export const CONTACT_EMAIL = ''
-
 /**
  * 運営者の名称（会社名・個人名）はサイトのどこにも表示しない方針。
- * 名称・所在地等は、問い合わせに応じて個別に開示する（プライバシーポリシー参照）。
  */
 
 /** プライバシーポリシーが法務確認済みか（ビルド時の警告用。画面には表示しない） */
@@ -41,7 +37,6 @@ export const BOOKING_ANCHOR = '#booking'
 export function missingConfig(): string[] {
   const missing: string[] = []
   if (!isBookingConfigured) missing.push('TIMEREX_URL')
-  if (!CONTACT_EMAIL) missing.push('CONTACT_EMAIL')
   if (!LEGAL_REVIEWED) missing.push('LEGAL_REVIEWED（法務確認）')
   return missing
 }

@@ -1,8 +1,6 @@
 import { DocLayout, DocSection } from '../components/DocLayout'
-import { Placeholder } from '../components/Placeholder'
-import { CONTACT_EMAIL } from '../config/site'
 
-/** プライバシーポリシー。法令上必要な事項（利用目的・開示等の請求窓口など）に絞る */
+/** プライバシーポリシー。必要最小限の事項に絞る */
 export function PrivacyPolicy() {
   return (
     <DocLayout title="プライバシーポリシー">
@@ -26,24 +24,8 @@ export function PrivacyPolicy() {
         </p>
       </DocSection>
 
-      <DocSection title="管理と削除">
-        <p>個人情報は必要な担当者だけが扱い、漏えい等を防ぐ措置を講じます。削除をご希望の場合はご連絡ください。</p>
-      </DocSection>
-
-      <DocSection title="お問い合わせ・開示等の請求">
-        <p>
-          個人情報の開示・訂正・削除・利用停止などのご請求やお問い合わせは、下記までご連絡ください。運営者の名称・住所・代表者の氏名も、ご請求に応じて遅滞なくお知らせします。
-        </p>
-        <p>
-          メール：
-          {CONTACT_EMAIL ? (
-            <a href={`mailto:${CONTACT_EMAIL}`} className="text-sage-700 underline underline-offset-4">
-              {CONTACT_EMAIL}
-            </a>
-          ) : (
-            <Placeholder label="問い合わせ用メールアドレス" />
-          )}
-        </p>
+      <DocSection title="管理">
+        <p>個人情報は必要な担当者だけが扱い、漏えい等を防ぐ措置を講じます。</p>
       </DocSection>
     </DocLayout>
   )
